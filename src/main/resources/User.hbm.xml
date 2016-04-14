@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="practise.User" table="users">
+
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity"/>
+        </id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"/>
+        </property>
+
+        <many-to-one name="proteinData" class="practise.ProteinData" column="proteindata_id"
+                     cascade="save-update" unique="true"/>
+
+
+       <!-- <one-to-one name="proteinData" class="practise.ProteinData" cascade="save-update"/>-->
+
+   <!--     <component name="proteinData">
+            <property name="total" type="int">
+                <column name="total"/>
+            </property>
+            <property name="goal" type="int">
+                <column name="goal"/>
+            </property>
+        </component>-->
+
+
+         <list name="history" table="user_history" inverse="true" cascade="save-update">
+            <key column="user_id" />
+            <list-index column="position" />
+            <one-to-many class="practise.UserHistory" />
+        </list>
+
+
+
+
+       <!-- <set name="history" table="user_history">
+            <key column="id" />
+            <composite-element class="practise.UserHistory">
+                <property name="entryTime" type="date" column="entry_time" />
+                <property name="entry" type="string" column="entry" />
+            </composite-element>
+        </set>
+-->
+       <!-- <list name="history" table="user_history">
+            <key column="id" />
+            <list-index column="position" />
+            <composite-element class="practise.UserHistory">
+                <property name="entryTime" type="date" column="entry_time" />
+                <property name="entry" type="string" column="entry" />
+            </composite-element>
+        </list>-->
+
+ <!--       <map name="history" table="user_history">
+            <key column="id" />
+            <map-key type="string" column="entry_identifier" />
+            <composite-element class="practise.UserHistory">
+                <property name="entryTime" type="date" column="entry_time" />
+                <property name="entry" type="string" column="entry" />
+            </composite-element>
+        </map>
+-->
+
+        <!--<idbag name="history" table="user_history">
+
+            <collection-id column="id" type="int">
+                <generator class="increment"></generator>
+            </collection-id>
+
+            <key column="user_id" />
+
+            <composite-element class="practise.UserHistory">
+                <property name="entryTime" type="date" column="entry_time" />
+                <property name="entry" type="string" column="entry" />
+            </composite-element>
+        </idbag>-->
+
+
+
+    </class>
+
+</hibernate-mapping>

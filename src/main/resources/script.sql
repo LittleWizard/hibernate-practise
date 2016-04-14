@@ -1,0 +1,6 @@
+CREATE TABLE testdb.Users (
+  id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  total INT NOT NULL DEFAULT 0,
+  goal INT NOT NULL DEFAULT 100,
+  PRIMARY KEY (id));

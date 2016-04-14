@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="practise.UserHistory" table="user_history">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment"/>
+        </id>
+        <property name="entry" type="java.lang.String">
+            <column name="entry"/>
+        </property>
+        <property name="entryTime" type="java.util.Date">
+            <column name="entry_time"/>
+        </property>
+        <many-to-one name="user" class="practise.User" not-null="true">
+            <column name="user_id" />
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>
+
+

@@ -1,0 +1,1 @@
+basic practise on core hibernate
