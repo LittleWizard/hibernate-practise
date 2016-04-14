@@ -73,7 +73,7 @@ public class User {
         this.history.add(history);
     }
 
-    public GoalAlert getGoalAlert() {
+   /* public GoalAlert getGoalAlert() {
         return goalAlert;
     }
 
@@ -81,6 +81,16 @@ public class User {
         this.goalAlert = goalAlert;
     }
 
-    private GoalAlert goalAlert;
+    private GoalAlert goalAlert;*/
+
+    public Set<GoalAlert> getGoalAlerts() {
+        return goalAlerts;
+    }
+
+    public void setGoalAlerts(Set<GoalAlert> goalAlerts) {
+        this.goalAlerts = goalAlerts;
+    }
+
+    private Set<GoalAlert> goalAlerts = new HashSet<>();
 
 }

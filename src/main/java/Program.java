@@ -1,4 +1,5 @@
 import org.hibernate.Session;
+import practise.GoalAlert;
 import practise.HibernateUtilities;
 import practise.User;
 import practise.UserHistory;
@@ -28,6 +29,10 @@ public class Program {
 
         user.addHistory(new UserHistory(new Date(), "Set the goal to 200"));
 
+       /* user.setGoalAlert(new GoalAlert("Very good !!!!"));*/
+
+        user.getGoalAlerts().add(new GoalAlert("Very good !!!!"));
+        user.getGoalAlerts().add(new GoalAlert("You did it!!!!"));
 
         session.save(user);
         session.getTransaction().commit();

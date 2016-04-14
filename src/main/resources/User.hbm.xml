@@ -83,7 +83,24 @@
         </idbag>-->
 
 
+       <!-- <join table="user_goal_alert" optional="true">
+            <key column="user_id" />
+            <many-to-one name="goalAlert"
+                         class="practise.GoalAlert"
+                         column="goal_alert_id"
+                         not-null="true"
+                         unique="true"
+                         cascade="save-update"/>
 
+        </join>
+
+-->
+
+        <set name="goalAlerts" table="user_goal_alert" cascade="save-update">
+            <key column="user_id" />
+            <many-to-many class="practise.GoalAlert" column="goal_alert_id" />
+        </set>
+        
     </class>
 
 </hibernate-mapping>
